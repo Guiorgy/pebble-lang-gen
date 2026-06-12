@@ -1,26 +1,37 @@
 [
     {
-        "name": "TH",
-        "start": "0E00",
-        "end": "0E7F",
+        "name": "Georgian",
+        "comment": "ა-ჰ",
+        "start": "10D0",
+        "end": "10F0",
         "font": "GoNotoKurrent"
     },
     {
-        "name": "JP Sym",
-        "start": "3000",
-        "end": "301F",
+        "name": "Russian1",
+        "comment": "А-Я and а-я",
+        "start": "0410",
+        "end": "044F",
         "font": "GoNotoKurrent"
     },
     {
-        "name": "JP Kana",
-        "start": "3040",
-        "end": "30FF",
+        "name": "Russian2",
+        "comment": "Ё",
+        "start": "0401",
+        "end": "0401",
         "font": "GoNotoKurrent"
     },
     {
-        "name": "Halfwidth",
-        "start": "FF00",
-        "end": "FFEF",
+        "name": "Russian3",
+        "comment": "ё",
+        "start": "0451",
+        "end": "0451",
+        "font": "GoNotoKurrent"
+    },
+    {
+        "name": "Currency",
+        "comment": "₾ and ₽",
+        "start": "20BD",
+        "end": "20BE",
         "font": "GoNotoKurrent"
     }
 ]
