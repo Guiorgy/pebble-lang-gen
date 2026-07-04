@@ -22,7 +22,7 @@ os.makedirs(BUILD_DIR, exist_ok=True)
 
 def build_font_objects(json_paths, fonts_metadata, variant, vert_size, pbff_type) -> List[Font]:
     font_objects = []
-    
+
     for json_path in json_paths:
         with open(json_path, 'r', encoding='utf-8') as f:
             output_spec = json.load(f)
@@ -42,7 +42,7 @@ def build_font_objects(json_paths, fonts_metadata, variant, vert_size, pbff_type
                     continue
                 font_type = FontType.PBFF
                 pbff_path = str(PBFFS_DIR / variant_details['pbff'] / f"{pbff_type}.pbff")
-            else: 
+            else:
                 continue
 
             if ttf_path == "" and pbff_path == "":
@@ -57,7 +57,7 @@ def build_font_objects(json_paths, fonts_metadata, variant, vert_size, pbff_type
                 new_font_offset = vert_size - font_height
                 logging.warning(f"Offset value {font_offset} for the variant {variant} for the font {font_name} is inappropriate. Automatically set to {new_font_offset}.")
                 font_offset = new_font_offset
-            
+
             if vert_size < font_height:
                 raise Exception(f"Height value {font_height} for the variant {variant} for the font {font_name} is too big. Try smaller number than {vert_size}.")
 
@@ -67,9 +67,9 @@ def build_font_objects(json_paths, fonts_metadata, variant, vert_size, pbff_type
             font_obj.set_heightoffset(font_offset)
             if font_type == FontType.TTF:
                 font_obj.set_fauxbold(variant_details.get('bold', False))
-            
+
             font_objects.append(font_obj)
-    
+
     return font_objects
 
 # Function to merge multiple Fonts
@@ -120,10 +120,10 @@ def merge_fonts(fonts: List[Font]) -> Font:
                 if codepoint not in f.codepoints:
                     return False
             return True
-        
+
         if not fonts:
             raise ValueError("No fonts to merge")
-        
+
         # Validate all fonts share same settings
         ref_height = fonts[0].max_height
         ref_legacy = fonts[0].legacy
@@ -132,12 +132,12 @@ def merge_fonts(fonts: List[Font]) -> Font:
                 raise ValueError(f"Font height mismatch: {f.max_height} != {ref_height}")
             if f.legacy != ref_legacy:
                 raise ValueError(f"Font legacy mode mismatch")
-        
+
         # Create merged font with placeholder ttf_path
         merged = Font(FontType.MERGED, "", "", fonts[0].max_height, fonts[0].max_glyphs, fonts[0].legacy)
         merged.name = b"merged_font"
         merged.heightoffset = fonts[0].heightoffset
-        
+
         glyph_entries = []
         merged.glyph_table.append(struct.pack('<I', 0))
         merged.number_of_glyphs = 0
@@ -297,11 +297,11 @@ for key, values in builds.items():
         with open(BUILD_DIR / key, 'wb') as f:
             pass
         continue
-        
+
     merged_font = merge_fonts(fonts)
     if merged_font is None:
         raise Exception("Failed to merge fonts. Exiting.")
-    
+
     with open(BUILD_DIR / key, 'wb') as f:
         f.write(merged_font.bitstring())
 
