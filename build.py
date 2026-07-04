@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import json
 import struct
@@ -311,7 +312,13 @@ for file_name in [str(i).zfill(3) for i in range(1, 21)]:
         with open(output_path, 'wb') as f:
             pass
 
-shutil.copy(TRANS_DIR / '000', BUILD_DIR / '000')
+shutil.copy(TRANS_DIR / '000.mo', BUILD_DIR / '000')
+
+# Extract the name out of the Machine Object file and use it as the resource pack file name
+with open(BUILD_DIR / '000', 'rb') as f:
+    if match := re.search(b'^Name:\\s*(.+)$', f.read(), re.MULTILINE):
+        name = match.group(1).decode('ascii')
+        OUTPUT_FILE = f'{name}.pbl'
 
 print("Packing resources")
 
