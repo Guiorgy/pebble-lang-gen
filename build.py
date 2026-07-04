@@ -114,7 +114,7 @@ def merge_fonts(fonts: List[Font]) -> Font:
             return offset, next_offset, glyph_indices_lookup
 
         def codepoint_is_in_subset(f:Font, codepoint):
-            if codepoint not in (fg.WILDCARD_CODEPOINT, fg.ELLIPSIS_CODEPOINT):
+            if codepoint != fg.WILDCARD_CODEPOINT:
                 if f.regex is not None:
                     if f.regex.match(chr(codepoint)) is None:
                         return False
