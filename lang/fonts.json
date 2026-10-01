@@ -6,71 +6,71 @@
             "001":
             {
                 "ttf": "GoNotoKurrent-Regular.ttf",
-                "height": 14,
-                "offset": 0,
+                "height": 12,
+                "offset": 2,
                 "bold": false
             },
             "002":
             {
                 "ttf": "GoNotoKurrent-Regular.ttf",
-                "height": 14,
-                "offset": 0,
+                "height": 12,
+                "offset": 2,
                 "bold": true
             },
             "003":
             {
                 "ttf": "GoNotoKurrent-Regular.ttf",
-                "height": 18,
-                "offset": 0,
+                "height": 14,
+                "offset": 4,
                 "bold": false
             },
             "004":
             {
                 "ttf": "GoNotoKurrent-Regular.ttf",
-                "height": 18,
-                "offset": 0,
+                "height": 14,
+                "offset": 4,
                 "bold": true
             },
             "005":
             {
                 "ttf": "GoNotoKurrent-Regular.ttf",
-                "height": 24,
-                "offset": 0,
+                "height": 17,
+                "offset": 7,
                 "bold": false
             },
             "006":
             {
                 "ttf": "GoNotoKurrent-Regular.ttf",
-                "height": 24,
-                "offset": 0,
+                "height": 17,
+                "offset": 7,
                 "bold": true
             },
             "007":
             {
                 "ttf": "GoNotoKurrent-Regular.ttf",
-                "height": 28,
-                "offset": 0,
+                "height": 20,
+                "offset": 8,
                 "bold": false
             },
             "008":
             {
                 "ttf": "GoNotoKurrent-Regular.ttf",
-                "height": 28,
-                "offset": 0,
+                "height": 20,
+                "offset": 8,
                 "bold": true
             },
             "009":
             {
                 "ttf": "GoNotoKurrent-Regular.ttf",
-                "height": 36,
-                "offset": 0,
+                "height": 27,
+                "offset": 9,
                 "bold": false
             },
             "010":
             {
                 "ttf": "GoNotoKurrent-Regular.ttf",
-                "height": 36,
-                "offset": 0,
+                "height": 27,
+                "offset": 9,
                 "bold": true
             }
         }
